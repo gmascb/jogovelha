@@ -1,0 +1,115 @@
+{
+	"info": {
+		"_postman_id": "0bced7fb-d612-4f85-afa7-f78d653ae585",
+		"name": "JogoVelha",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "inicia jogo",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "20ad70ed-b987-4359-acef-17af3159935d",
+						"exec": [
+							"var guid = pm.response.json()['id'];\r",
+							"var nextPlayer = pm.response.json()['nextPlayer']\r",
+							"console.log(\"\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\");\r",
+							"console.log(guid);\r",
+							"console.log(nextPlayer);\r",
+							"pm.environment.set(\"guid\", guid);\r",
+							"pm.environment.set(\"nextPlayer\", nextPlayer);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:5001/game",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"game"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "hello_world",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:5001",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "5001"
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "movement",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "40436911-df05-4da7-965b-d764dea96782",
+						"exec": [
+							"console.log(\"\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\");\r",
+							"var player = pm.environment.get(\"nextPlayer\");\r",
+							"\r",
+							"if (player == \"O\"){\r",
+							"    pm.environment.set(\"nextPlayer\", \"X\");\r",
+							"}else{\r",
+							"    pm.environment.set(\"nextPlayer\", \"O\");\r",
+							"}\r",
+							"\r",
+							"console.log(pm.environment.get(\"nextPlayer\"));\r",
+							"console.log(pm.environment.get(\"guid\"));"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": \"{{guid}}\",\r\n    \"player\": \"{{nextPlayer}}\",\r\n    \"position\": {\r\n        \"x\": 2,\r\n        \"y\": 2\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:5001/game/movement/",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"game",
+						"movement",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

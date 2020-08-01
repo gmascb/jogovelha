@@ -1,10 +1,6 @@
 using System;
 using System.ComponentModel.DataAnnotations;
 
-/* 
-vstest.console.exe --settings:C:\Users\Guilherme\Documents\workspace\jogovelha\Tests\Test.RunSettings.xml C:\Users\Guilherme\Documents\workspace\jogovelha\bin\Debug\netcoreapp3.1\jogovelha.dll 
- */
-
 namespace jogovelha.Models
 {
     public class Position
@@ -41,27 +37,5 @@ namespace jogovelha.Models
 
             return result;
         }
-
-        public string MatrixDrawTrue()
-        {
-            var Matrix = "";
-            Matrix +=  "O,X,O";
-            Matrix += "|X,O,X|";
-            Matrix +=  "O,X,O";
-
-            return Matrix;
-        }
-
-        public string MatrixDrawFalse()
-        {
-            var Matrix = "";
-
-            Matrix += "02,X,22";
-            Matrix +="|O,11,X|";
-            Matrix += "00,O,20";
-          
-            return Matrix;
-        }
-
     }
 }
