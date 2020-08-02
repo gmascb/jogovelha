@@ -14,4 +14,4 @@ RUN dotnet add jogovelha.csproj package Microsoft.EntityFrameworkCore.InMemory
 
 COPY . ./
 RUN dotnet publish -c Release -o out
-CMD ASPNETCORE_URLS=http://*:$PORT dotnet out/heroku-api-medium.dll
+CMD ASPNETCORE_URLS=http://*:$PORT dotnet out/jogovelha.dll
