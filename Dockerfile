@@ -1,14 +1,25 @@
-FROM mcr.microsoft.com/dotnet/core/sdk:3.1-buster
-WORKDIR /src
-EXPOSE 80
+FROM mcr.microsoft.com/dotnet/core/sdk:3.1 AS base
+WORKDIR /app
 
+ARG BUILD_CONFIGURATION=Debug
+ENV ASPNETCORE_ENVIRONMENT=Development
+ENV DOTNET_USE_POLLING_FILE_WATCHER=true  
+ENV ASPNETCORE_URLS=http://+:5001  
+EXPOSE 5001
+
+FROM mcr.microsoft.com/dotnet/core/sdk:3.1 AS build
+WORKDIR /src
 COPY jogovelha.csproj ./
 RUN dotnet restore "jogovelha.csproj"
-COPY . ./
+COPY . .
+RUN dotnet build . -c Release -o /app
 
-RUN dotnet build . -c Release -o /app/build
-RUN dotnet add jogovelha.csproj package Microsoft.EntityFrameworkCore.InMemory
-RUN dotnet publish -c Release -o out
+FROM build as publish
+RUN dotnet publish "jogovelha.csproj" -c Release -o /app
+
+FROM base AS final
+WORKDIR /app
+COPY --from=publish /app .
 
 
-CMD ASPNETCORE_URLS=http://*:$PORT dotnet out/jogovelha.dll
+ENTRYPOINT [ "dotnet", "jogovelha.dll" ]
