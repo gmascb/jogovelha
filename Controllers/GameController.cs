@@ -15,18 +15,14 @@ namespace jogovelha.Controllers
         [Route("game")]
         public Task<Game> StartGame([FromServices] DataContext context)
         {
-            GameService service = new GameService(context);
-            var result =  service.StartGame();
-            return result;
+            return new GameService(context).StartGame();
         }
         
         [HttpPost]
         [Route("game/movement")]
         public Task<ResultDto> MakeMove([FromServices] DataContext context, [FromBody] MovementDto Mov)
-        {
-            GameService service = new GameService(context, Mov);
-            var result = service.MakeMovement(); 
-            return result;
+        {   
+            return new GameService(context, Mov).MakeMovement(); 
         }
 
 
