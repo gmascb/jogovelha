@@ -10,9 +10,9 @@
     * ```heroku apps```
     * ```heroku container:login```
     * Publish
-      * ```heroku container:push web -a gmascb-jogovelha```
+      * ```sudo heroku container:push web -a gmascb-jogovelha```
     * Update
-      * ```heroku container:release web --app gmascb-jogovelha```
+      * ```sudo heroku container:release web --app gmascb-jogovelha```
 * Docker
   * docker build . -t jogovelha
   * docker run -it --rm -p 5001:5001 jogovelha

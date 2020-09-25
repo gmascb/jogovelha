@@ -3,8 +3,8 @@ WORKDIR /app
 
 ARG BUILD_CONFIGURATION=Debug
 ENV ASPNETCORE_ENVIRONMENT=Development
-ENV DOTNET_USE_POLLING_FILE_WATCHER=true  
-ENV ASPNETCORE_URLS=http://+:44501
+ENV DOTNET_USE_POLLING_FILE_WATCHER=true
+ENV PORT=44501
 EXPOSE 44501
 
 FROM mcr.microsoft.com/dotnet/core/sdk:3.1 AS build
@@ -22,5 +22,4 @@ WORKDIR /app
 COPY --from=publish /app .
 
 
-# ENTRYPOINT [ "dotnet", "jogovelha.dll" ]
-CMD [ "dotnet", "jogovelha.dll" ]
+CMD ASPNETCORE_URLS=http://*:$PORT dotnet jogovelha.dll
