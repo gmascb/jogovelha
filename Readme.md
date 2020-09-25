@@ -16,5 +16,5 @@
 * Docker
   * docker build . -t jogovelha
   * docker run -it --rm -p 5001:5001 jogovelha
-  * sudo docker build . -t jogovelha && sudo docker run -it --rm -p 5001:5001 jogovelha
+  * sudo docker build . -t jogovelha && sudo docker run -it --rm -p 44501:44501 jogovelha
   * To test in postman with Docker use HTTP instead HTTPS

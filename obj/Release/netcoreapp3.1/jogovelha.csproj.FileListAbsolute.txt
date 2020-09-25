@@ -1,0 +1,8 @@
+/home/gmascb/workspace/jogovelha/obj/Release/netcoreapp3.1/jogovelha.csprojAssemblyReference.cache
+/home/gmascb/workspace/jogovelha/obj/Release/netcoreapp3.1/jogovelha.AssemblyInfoInputs.cache
+/home/gmascb/workspace/jogovelha/obj/Release/netcoreapp3.1/jogovelha.AssemblyInfo.cs
+/home/gmascb/workspace/jogovelha/obj/Release/netcoreapp3.1/jogovelha.csproj.CoreCompileInputs.cache
+/home/gmascb/workspace/jogovelha/obj/Release/netcoreapp3.1/jogovelha.MvcApplicationPartsAssemblyInfo.cache
+/home/gmascb/workspace/jogovelha/obj/Release/netcoreapp3.1/jogovelha.RazorTargetAssemblyInfo.cache
+/home/gmascb/workspace/jogovelha/obj/Release/netcoreapp3.1/jogovelha.dll
+/home/gmascb/workspace/jogovelha/obj/Release/netcoreapp3.1/jogovelha.pdb
