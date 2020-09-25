@@ -23,3 +23,4 @@ COPY --from=publish /app .
 
 
 ENTRYPOINT [ "dotnet", "jogovelha.dll" ]
+# CMD [ "dotnet", "jogovelha.dll" ]
