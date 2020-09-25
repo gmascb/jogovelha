@@ -1,13 +1,18 @@
 ## READ_ME
 
 * Dependency
-  * dotnet add package Microsoft.EntityFrameworkCore.InMemory
+  * ```dotnet add package Microsoft.EntityFrameworkCore.InMemory```
 * To test with postman import collection in: 
   * ```postman_collection/JovoVelha.postman_collection.json```
-* Deployed into Heroku
+* [Deployed into Heroku](https://devcenter.heroku.com/articles/container-registry-and-runtime)
   * heroku container:push $docker-compose-service-name --app $heroku-app-name
-    * heroku container:push web --app gmascb-jogovelha
-    * heroku container:release web --app gmascb-jogovelha
+    * ```heroku login```
+    * ```heroku apps```
+    * ```heroku container:login```
+    * Publish
+      * ```heroku container:push web -a gmascb-jogovelha```
+    * Update
+      * ```heroku container:release web --app gmascb-jogovelha```
 * Docker
   * docker build . -t jogovelha
   * docker run -it --rm -p 5001:5001 jogovelha
