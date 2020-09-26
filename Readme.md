@@ -5,7 +5,7 @@
 * To test with postman import collection in: 
   * ```postman_collection/JovoVelha.postman_collection.json```
 * [Deployed into Heroku](https://devcenter.heroku.com/articles/container-registry-and-runtime)
-  * heroku container:push $docker-compose-service-name --app $heroku-app-name
+  * Go to the settings ```Config Vars``` and add a PORT value 44501
     * ```heroku login```
     * ```heroku apps```
     * ```heroku container:login```
